@@ -1,7 +1,8 @@
-import "./index.css";
 import { BrowserRouter, Routes, Route, useRouteError } from "react-router-dom";
 import Header from "./components/common/Header";
-import PageNotFound from "./components/Errors/PageNotFound";
+import PageNotFound from "./components/errors/PageNotFound";
+import "./index.css";
+import Register from "./pages/auth/Register";
 
 function HandleError(){
   const error = useRouteError()
@@ -19,11 +20,11 @@ function App() {
           <Route
             path="/"
             element={<Header />}
-            errorElement={<HandleError/>}
+            errorElement={<HandleError />}
             action={()=> { throw new Response('error', { status: 404 }) }}
           />
-          {/* error elements render */}
-          <Route path="*" element={<PageNotFound/>}/>
+          <Route path="/app/auth/login-user" element={<Register />} />
+          <Route path="*" element={<PageNotFound />}/>
         </Routes>
       </BrowserRouter>
     </>
