@@ -26,7 +26,7 @@ function FormAuthLogin() {
       errors.username?.type === "required" ||
       errors.password?.type === "required"
     )
-      toast.error("Escribe algo pto");
+      toast.error("Completa los campos necesarios");
   }, [errors.username, errors.password]);
 
   return (
