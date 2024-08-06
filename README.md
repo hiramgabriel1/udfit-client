@@ -1,30 +1,90 @@
-# React + TypeScript + Vite
+/udfit-client-arq
+│
+├── /public
+│ ├── index.html
+│ └── favicon.ico
+│
+├── /src
+│ ├── /features
+│ │ ├── /auth
+│ │ │ ├── components
+│ │ │ │ ├── LoginForm.jsx
+│ │ │ │ ├── SignupForm.jsx
+│ │ │ │ └── AuthHeader.jsx
+│ │ │ ├── pages
+│ │ │ │ ├── LoginPage.jsx
+│ │ │ │ └── SignupPage.jsx
+│ │ │ ├── services
+│ │ │ │ └── authService.js
+│ │ │ └── hooks
+│ │ │ └── useAuth.js
+│ │ │
+│ │ ├── /dashboard
+│ │ │ ├── components
+│ │ │ │ ├── DashboardHeader.jsx
+│ │ │ │ ├── Sidebar.jsx
+│ │ │ │ └── DashboardCard.jsx
+│ │ │ ├── pages
+│ │ │ │ ├── DashboardHomePage.jsx
+│ │ │ │ └── SettingsPage.jsx
+│ │ │ ├── services
+│ │ │ │ └── dashboardService.js
+│ │ │ └── hooks
+│ │ │ └── useDashboardData.js
+│ │ │
+│ │ └── /profile
+│ │ ├── components
+│ │ ├── pages
+│ │ ├── services
+│ │ └── hooks
+│ │
+│ ├── /shared
+│ │ ├── /components
+│ │ │ ├── Button.jsx
+│ │ │ ├── Input.jsx
+│ │ │ └── Modal.jsx
+│ │ ├── /hooks
+│ │ │ └── useFetch.js
+│ │ └── /utils
+│ │ └── api.js
+│ │
+│ ├── /routes
+│ │ ├── AppRouter.jsx
+│ │ └── PrivateRoute.jsx
+│ │
+│ ├── App.jsx
+│ ├── index.js
+│ └── /config
+│ └── config.js
+│
+├── /node_modules
+│
+├── .gitignore
+├── package.json
+├── README.md
+└── yarn.lock / package-lock.json
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Explicación de esta estructura:
 
-Currently, two official plugins are available:
+- **`/features`**: Esta es la diferencia clave con la estructura anterior. En lugar de agrupar componentes, páginas y servicios por tipo, se agrupan por funcionalidad o características. Cada funcionalidad (como `auth`, `dashboard`, `profile`) tiene su propia carpeta que contiene sus componentes, páginas, servicios, y hooks específicos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  - **`/components`**: Componentes reutilizables dentro de esa funcionalidad.
+  - **`/pages`**: Las páginas específicas de esa funcionalidad.
+  - **`/services`**: Servicios o lógica de negocio relacionada con la funcionalidad.
+  - **`/hooks`**: Hooks personalizados específicos para esa funcionalidad.
 
-## Expanding the ESLint configuration
+- **`/shared`**: Contiene componentes, hooks y utilidades que se comparten entre diferentes funcionalidades.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+  - **`/components`**: Componentes genéricos que pueden ser utilizados en cualquier parte del proyecto.
+  - **`/hooks`**: Hooks reutilizables que no están ligados a una funcionalidad específica.
+  - **`/utils`**: Utilidades compartidas, como funciones para llamadas a APIs.
 
-- Configure the top-level `parserOptions` property like this:
+- **`/routes`**: Configuración de rutas. Aquí podrías definir todas las rutas principales y las rutas protegidas.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **`App.jsx`** y **`index.js`**: Archivos principales donde se configura y monta la aplicación.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Ventajas de esta estructura:
+
+- **Escalabilidad**: A medida que crece tu aplicación, puedes añadir nuevas funcionalidades (módulos) de manera organizada.
+- **Modularidad**: Facilita el mantenimiento y la reutilización de código. Cada módulo o funcionalidad está encapsulado en su propio espacio.
+- **Separación de preocupaciones**: Mantiene el código relacionado con cada funcionalidad en un solo lugar, lo que mejora la claridad y la gestión del código.
