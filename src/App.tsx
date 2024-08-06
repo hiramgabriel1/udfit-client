@@ -22,6 +22,8 @@ function App() {
             errorElement={<HandleError/>}
             action={()=> { throw new Response('error', { status: 404 }) }}
           />
+          {/* error elements render */}
+          <Route path="*" element={<PageNotFound/>}/>
         </Routes>
       </BrowserRouter>
     </>
