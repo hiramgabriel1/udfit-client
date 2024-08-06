@@ -1,7 +1,9 @@
+import "./index.css"
+
 function App() {
   return (
     <>
-      <h1 className="text-center">hello world</h1>
+      <h1 className="font-bold">hello world</h1>
     </>
   )
 }
