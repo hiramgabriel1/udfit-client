@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 type IUserForm = {
   username: string;
@@ -14,17 +14,24 @@ function FormAuthLogin() {
     handleSubmit,
     formState: { errors },
   } = useForm<IUserForm>();
+
+  // generics types
+  // tipos genericos en typescript
   const onSubmit: SubmitHandler<IUserForm> = (dataForm) => {
     console.log(dataForm);
   };
 
   useEffect(() => {
-    if (errors.username?.type === "required") toast.error('Escribe algo pto')
-  }, [errors.username])
+    if (
+      errors.username?.type === "required" ||
+      errors.password?.type === "required"
+    )
+      toast.error("Escribe algo pto");
+  }, [errors.username, errors.password]);
 
   return (
     <>
-      <ToastContainer position="top-center" theme="dark"  />
+      <ToastContainer position="top-center" theme="dark" />
 
       <section className="flex items-center justify-center min-h-screen">
         <div className="bg-white rounded-3xl shadow-2xl py-10 md:w-1/3">
@@ -40,6 +47,7 @@ function FormAuthLogin() {
                   type="text"
                   className="bg-color-primary-orange p-3 rounded-3xl text-center text-black hover:border-color-secondary opacity-75 input"
                   placeholder="Nombre de usuario"
+                  // spreads ...
                   {...register("username", { required: true })}
                   aria-invalid={errors.username ? "true" : "false"}
                 />
@@ -47,7 +55,7 @@ function FormAuthLogin() {
                   type="password"
                   className="bg-color-primary-orange p-3 rounded-3xl text-center text-black hover:border-color-secondary opacity-75 input"
                   placeholder="Contraseña"
-                  {...register("password")}
+                  {...register("password", { required: true })}
                 />
               </div>
             </div>
