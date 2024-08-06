@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { loginUser } from "../services/loginServices";
 
-type IUserForm = {
+export type IUserLogin = {
   username: string;
   password: string;
 };
@@ -13,12 +14,11 @@ function FormAuthLogin() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IUserForm>();
+  } = useForm<IUserLogin>();
+  const onSubmit: SubmitHandler<IUserLogin> = async (dataForm: IUserLogin) => {
+    const fetchServiceLogin = await loginUser(dataForm)
 
-  // generics types
-  // tipos genericos en typescript
-  const onSubmit: SubmitHandler<IUserForm> = (dataForm) => {
-    console.log(dataForm);
+    console.log(fetchServiceLogin);
   };
 
   useEffect(() => {
@@ -47,7 +47,6 @@ function FormAuthLogin() {
                   type="text"
                   className="bg-color-primary-orange p-3 rounded-3xl text-center text-black hover:border-color-secondary opacity-75 input"
                   placeholder="Nombre de usuario"
-                  // spreads ...
                   {...register("username", { required: true })}
                   aria-invalid={errors.username ? "true" : "false"}
                 />
