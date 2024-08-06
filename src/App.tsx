@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, useRouteError } from "react-router-dom";
-import Header from "./components/common/Header";
-import PageNotFound from "./components/errors/PageNotFound";
+import PageNotFound from "./errors/PageNotFound";
+import Register from "./features/auth/pages/Login";
+import Dashboard from "./features/dashboard/pages/Dashboard";
 import "./index.css";
-import Register from "./pages/auth/Register";
 
 function HandleError(){
   const error = useRouteError()
@@ -19,7 +19,7 @@ function App() {
         <Routes >
           <Route
             path="/"
-            element={<Header />}
+            element={<Dashboard />}
             errorElement={<HandleError />}
             action={()=> { throw new Response('error', { status: 404 }) }}
           />
