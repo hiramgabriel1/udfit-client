@@ -1,11 +1,31 @@
-import "./index.css"
+import "./index.css";
+import { BrowserRouter, Routes, Route, useRouteError } from "react-router-dom";
+import Header from "./components/common/Header";
+import PageNotFound from "./components/Errors/PageNotFound";
+
+function HandleError(){
+  const error = useRouteError()
+
+  console.log(error);
+  
+  return <PageNotFound />
+}
 
 function App() {
   return (
     <>
-      <h1 className="font-bold">hello world</h1>
+      <BrowserRouter>
+        <Routes >
+          <Route
+            path="/"
+            element={<Header />}
+            errorElement={<HandleError/>}
+            action={()=> { throw new Response('error', { status: 404 }) }}
+          />
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
