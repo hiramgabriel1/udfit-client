@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { loginUser } from "../services/loginServices";
+import "react-toastify/dist/ReactToastify.css";
 
 export type IUserLogin = {
   username: string;
@@ -17,7 +17,6 @@ function FormAuthLogin() {
   } = useForm<IUserLogin>();
   const onSubmit: SubmitHandler<IUserLogin> = async (dataForm: IUserLogin) => {
     const fetchServiceLogin = await loginUser(dataForm)
-
     console.log(fetchServiceLogin);
   };
 
