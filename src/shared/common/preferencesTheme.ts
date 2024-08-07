@@ -4,5 +4,4 @@ export const changeTheme = () => {
     const { themeMode } = ThemePreferencesStore.getState()
 
     console.log(themeMode);
-        
 }
