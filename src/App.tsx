@@ -10,6 +10,7 @@ import ThemePreferencesStore from "./shared/stores/preferencesUser";
 import { changeTheme } from "./shared/common/preferencesTheme";
 import Login from "./features/auth/pages/Login";
 import Register from "./features/auth/pages/Register";
+import Header from "./features/dashboard/components/Header";
 
 function HandleError() {
   const error = useRouteError();
@@ -38,6 +39,7 @@ function App() {
 
   return (
     <>
+      <Header/>
       <Around
         duration={800}
         reversed
@@ -50,7 +52,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            path="/"
+            path="/app"
             element={<Dashboard />}
             errorElement={<HandleError />}
             action={() => {
