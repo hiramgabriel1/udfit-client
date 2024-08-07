@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
+import { loginUser } from "../services/loginServices";
 import "react-toastify/dist/ReactToastify.css";
 
-type IUserForm = {
+export type IUserLogin = {
   username: string;
   password: string;
 };
@@ -13,12 +14,10 @@ function FormAuthLogin() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IUserForm>();
-
-  // generics types
-  // tipos genericos en typescript
-  const onSubmit: SubmitHandler<IUserForm> = (dataForm) => {
-    console.log(dataForm);
+  } = useForm<IUserLogin>();
+  const onSubmit: SubmitHandler<IUserLogin> = async (dataForm: IUserLogin) => {
+    const fetchServiceLogin = await loginUser(dataForm)
+    console.log(fetchServiceLogin);
   };
 
   useEffect(() => {
@@ -26,7 +25,7 @@ function FormAuthLogin() {
       errors.username?.type === "required" ||
       errors.password?.type === "required"
     )
-      toast.error("Escribe algo pto");
+      toast.error("Completa los campos necesarios");
   }, [errors.username, errors.password]);
 
   return (
@@ -47,7 +46,6 @@ function FormAuthLogin() {
                   type="text"
                   className="bg-color-primary-orange p-3 rounded-3xl text-center text-black hover:border-color-secondary opacity-75 input"
                   placeholder="Nombre de usuario"
-                  // spreads ...
                   {...register("username", { required: true })}
                   aria-invalid={errors.username ? "true" : "false"}
                 />

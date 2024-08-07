@@ -1,4 +1,4 @@
-import FormAuthLogin from "../../components/forms/FormAuthLogin"
+import FormAuthLogin from "../components/Form"
 
 function Register() {
   return (<FormAuthLogin/>)
