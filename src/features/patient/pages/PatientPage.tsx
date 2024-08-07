@@ -1,8 +1,12 @@
 import Button from "../components/Button"
+import Prueba from "../components/Prueba"
 
 function PatientPage() {
   return (
-    <Button / >
+    <>
+    <Button></Button>
+    <Prueba></Prueba>
+    </>
   )
 }
 
