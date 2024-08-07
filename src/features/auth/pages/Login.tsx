@@ -1,8 +1,6 @@
 import FormAuthLogin from "../components/Form";
-// import { Expand } from "@theme-toggles/react";
-// import "@theme-toggles/react/css/Expand.css";
 
-function Register() {
+function Login() {
   return (
     <>
       <FormAuthLogin />
@@ -10,4 +8,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Login;

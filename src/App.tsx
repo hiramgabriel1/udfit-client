@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route, useRouteError } from "react-router-dom";
 import PageNotFound from "./errors/PageNotFound";
-import Register from "./features/auth/pages/Login";
 import Dashboard from "./features/dashboard/pages/Dashboard";
 import "./index.css";
 import ProtectedRoute from "./shared/components/ProtectedRoute";
@@ -9,6 +8,8 @@ import "@theme-toggles/react/css/Around.css";
 import { useEffect, useState } from "react";
 import ThemePreferencesStore from "./shared/stores/preferencesUser";
 import { changeTheme } from "./shared/common/preferencesTheme";
+import Login from "./features/auth/pages/Login";
+import Register from "./features/auth/pages/Register";
 
 function HandleError() {
   const error = useRouteError();
@@ -56,7 +57,8 @@ function App() {
               throw new Response("error", { status: 404 });
             }}
           />
-          <Route path="/app/auth/login-user" element={<Register />} />
+          <Route path="/app/auth/login-user" element={<Login />} />
+          <Route path="/app/auth/register-user" element={<Register />} />
 
           {/**
            * @routesProtected
