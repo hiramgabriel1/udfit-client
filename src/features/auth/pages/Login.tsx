@@ -1,7 +1,13 @@
-import FormAuthLogin from "../components/Form"
+import FormAuthLogin from "../components/Form";
+// import { Expand } from "@theme-toggles/react";
+// import "@theme-toggles/react/css/Expand.css";
 
 function Register() {
-  return (<FormAuthLogin/>)
+  return (
+    <>
+      <FormAuthLogin />
+    </>
+  );
 }
 
-export default Register
+export default Register;

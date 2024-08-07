@@ -4,6 +4,11 @@ import Register from "./features/auth/pages/Login";
 import Dashboard from "./features/dashboard/pages/Dashboard";
 import "./index.css";
 import ProtectedRoute from "./shared/components/ProtectedRoute";
+import { Around } from "@theme-toggles/react";
+import "@theme-toggles/react/css/Around.css";
+import { useEffect, useState } from "react";
+import ThemePreferencesStore from "./shared/stores/preferencesUser";
+import { changeTheme } from "./shared/common/preferencesTheme";
 
 function HandleError() {
   const error = useRouteError();
@@ -14,8 +19,33 @@ function HandleError() {
 }
 
 function App() {
+  const { setDarkMode, setLightMode } = ThemePreferencesStore();
+  const [isToggled, setToggle] = useState(false);
+
+  useEffect(() => {
+    isToggled ? setDarkMode() : setLightMode();
+
+    if (isToggled) {
+      changeTheme();
+      setDarkMode();
+    }
+
+    setLightMode();
+
+    console.log(isToggled);
+  }, [isToggled, setDarkMode, setLightMode]);
+
   return (
     <>
+      <Around
+        duration={800}
+        reversed
+        toggled={isToggled}
+        toggle={setToggle}
+        placeholder={isToggled ? "Cambiar a ligth" : "cambiar a dark"}
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      ></Around>
       <BrowserRouter>
         <Routes>
           <Route
@@ -27,11 +57,11 @@ function App() {
             }}
           />
           <Route path="/app/auth/login-user" element={<Register />} />
-          
-          {/** 
+
+          {/**
            * @routesProtected
-           * rutas protegidas deben estar dentro 
-          */ }
+           * rutas protegidas deben estar dentro
+           */}
 
           <Route element={<ProtectedRoute />}>
             <Route path="/prueba" element={<Dashboard />} />
@@ -39,7 +69,7 @@ function App() {
             <Route path="/recets" element={<Dashboard />} />
             <Route path="/kdjdk" element={<Dashboard />} />
           </Route>
-          
+
           {/* close protected routes */}
           <Route path="*" element={<PageNotFound />} />
         </Routes>
