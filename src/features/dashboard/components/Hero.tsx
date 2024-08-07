@@ -14,7 +14,9 @@ function Hero() {
                 </p>
               </div>
               <div className="md:w-1/2">
-                <img src={comidaLanding} alt="" className="md:float-right" />
+                <img 
+                // src={comidaLanding}
+                 alt="" className="md:float-right" />
               </div>
             </div>
           </div>
@@ -23,3 +25,5 @@ function Hero() {
     </>
   );
 }
+
+export default Hero
