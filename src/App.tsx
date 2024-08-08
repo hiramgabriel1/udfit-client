@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, useRouteError } from "react-router-dom";
 import PageNotFound from "./errors/PageNotFound";
 import Dashboard from "./features/dashboard/pages/Dashboard";
 import "./index.css";
-import ProtectedRoute from "./shared/components/ProtectedRoute";
+// import ProtectedRoute from "./shared/components/ProtectedRoute";
 import { Around } from "@theme-toggles/react";
 import "@theme-toggles/react/css/Around.css";
 import { useEffect, useState } from "react";
@@ -11,6 +11,7 @@ import { changeTheme } from "./shared/common/preferencesTheme";
 import Login from "./features/auth/pages/Login";
 import Register from "./features/auth/pages/Register";
 import Header from "./features/dashboard/components/Header";
+import PatientPage from "./features/patient/pages/PatientPage";
 
 function HandleError() {
   const error = useRouteError();
@@ -67,12 +68,12 @@ function App() {
            * rutas protegidas deben estar dentro
            */}
 
-          <Route element={<ProtectedRoute />}>
+          {/* <Route element={<ProtectedRoute />}> */}
             <Route path="/prueba" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/recets" element={<Dashboard />} />
+            <Route path="/pacientes" element={<PatientPage/>} />
             <Route path="/kdjdk" element={<Dashboard />} />
-          </Route>
+          {/* </Route> */}
 
           {/* close protected routes */}
           <Route path="*" element={<PageNotFound />} />
