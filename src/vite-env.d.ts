@@ -16,4 +16,3 @@ export interface Ipatient {
     height: string
     age: string
     gender: string
-}
