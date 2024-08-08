@@ -1,4 +1,4 @@
-import { IUser } from "./registerService";
+import { IUser } from "../../../vite-env";
 import { InstancesAxiosFetch } from "../../../shared/common/axiosConfig";
 import { IUserLogin } from "../components/Form";
 import useAuthStore from "../../../shared/stores/authStore";

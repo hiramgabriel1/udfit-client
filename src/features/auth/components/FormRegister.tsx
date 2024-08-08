@@ -9,7 +9,7 @@ export type IUserLogin = {
   password: string;
 };
 
-function FormAuthLogin() {
+function FormRegister() {
   const {
     register,
     handleSubmit,
@@ -69,4 +69,4 @@ function FormAuthLogin() {
   );
 }
 
-export default FormAuthLogin;
+export default FormRegister;

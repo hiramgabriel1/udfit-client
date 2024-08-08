@@ -1,7 +1,7 @@
-import FormAuthLogin from "../components/Form"
+import FormAuthLogin from "../components/Form";
 
-function Register() {
-  return (<FormAuthLogin/>)
+function Login() {
+  return (<FormAuthLogin />);
 }
 
-export default Register
+export default Login;

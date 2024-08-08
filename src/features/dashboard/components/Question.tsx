@@ -18,7 +18,9 @@ function Question() {
               </p>
             </div>
             <div className="mb-12 md:w-1/2">
-              <img src={mujer_2} alt="" />
+              <img 
+              // src={mujer_2}
+               alt="" />
             </div>
           </div>
         </div>
@@ -26,3 +28,5 @@ function Question() {
     </>
   );
 }
+
+export default Question

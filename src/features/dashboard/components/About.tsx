@@ -5,7 +5,9 @@ function About() {
         <div className="container py-20 relative">
           <div className="flex flex-col items-center justify-between md:flex-row">
             <div className="mb-12 md:w-1/2">
-              <img src={mujer_1} alt="" />
+              <img 
+              // src={mujer_1}
+               alt="" />
             </div>
             <div className="text-center md:text-left md:w-1/2 md:ml-20 py-12 px-5">
               <h2 className="font-principal text-5xl text-white mb-4 md:text-4xl lg:text-6xl">
@@ -26,3 +28,5 @@ function About() {
     </>
   );
 }
+
+export default About
