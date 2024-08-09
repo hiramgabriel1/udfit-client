@@ -26,7 +26,7 @@ function FormRegister() {
       errors.password?.type === "required"
     )
       toast.error("Completa los campos necesarios");
-  }, [errors.username, errors.password]);
+  }, [errors.username, errors.password])
 
   return (
     <>
