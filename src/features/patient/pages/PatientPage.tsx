@@ -1,11 +1,11 @@
-import Button from "../components/Button"
-import Prueba from "../components/Prueba"
+import Diet from "../components/Diet";
+import HeroProfile from "../../../shared/components/HeroProfile";
 
 function PatientPage() {
   return (
     <>
-    <Button></Button>
-    <Prueba></Prueba>
+    <HeroProfile></HeroProfile>
+    <Diet></Diet>
     </>
   )
 }
