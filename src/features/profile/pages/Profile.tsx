@@ -1,6 +1,12 @@
+import Patientlist from "../components/Patientlist"
+import PatientInfo from "../components/PatientInfo"
+
 function Profile() {
   return (
-    <div>Profile</div>
+    <>
+    <PatientInfo />
+    <Patientlist />
+    </>
   )
 }
 
