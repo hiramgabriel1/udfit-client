@@ -1,9 +1,10 @@
 import salad from "../../../assets/images/salad.png";
-import arrow_r from "../../../assets/images/arrow_r.png";
-import arrow_l from "../../../assets/images/arrow_l.png";
+import Daycard from "./Daycard";
 
-function Diet() {
+
+function Patientdiet() {
   return (
+    <>
     <section>
       <div className="container">
         <div className="flex justify-center py-8 ">
@@ -19,55 +20,11 @@ function Diet() {
                 <img src={salad} className="w-36 h-25 lg:w-[35%]" />
               </div>
               <div className="text-center mr-5">
-                <h2 className="font-principal text-white text-2xl">LUNES</h2>
-                <span className="text-white text-xs">FECHA</span>
+                <h2 className="font-principal text-white text-2xl lg:text-4xl">LUNES</h2>
               </div>
             </div>
           </div>
-
-          <div className="flex items-center justify-center">
-            <div className="pr-1">
-              <button>
-                <img src={arrow_r} />
-              </button>
-            </div>
-            <div className="grid grid-cols-3 py-10 space-x-1 lg:w-[70%]">
-              <div className="bg-color-primary rounded-lg">
-                <div className="bg-color-secondary-light text-white rounded-lg text-center font-semibold text-sm px-2 py-2 lg:text-xl">
-                  <p>DESAYUNO 8:00 am</p>
-                  <p>POLLO CON ARROZ</p>
-                </div>
-                <div className="text-center pt-2 pb-8 px-2 text-xs lg:text-lg">
-                  <p>100G arroz 2 piezas de pollo Espinacaz</p>
-                </div>
-              </div>
-
-              <div className="bg-color-primary rounded-lg">
-                <div className="bg-color-secondary-light text-white rounded-lg text-center font-semibold text-sm px-2 py-2 lg:text-xl">
-                  <p>DESAYUNO 8:00 am</p>
-                  <p>POLLO CON ARROZ</p>
-                </div>
-                <div className="text-center pt-2 pb-8 px-2 text-xs lg:text-lg">
-                  <p>100G arroz 2 piezas de pollo Espinacaz</p>
-                </div>
-              </div>
-
-              <div className="bg-color-primary rounded-lg">
-                <div className="bg-color-secondary-light text-white rounded-lg text-center font-semibold text-sm px-2 py-2 lg:text-xl">
-                  <p>DESAYUNO 8:00 am</p>
-                  <p>POLLO CON ARROZ</p>
-                </div>
-                <div className="text-center pt-2 pb-8 px-2 text-xs lg:text-lg">
-                  <p>100G arroz 2 piezas de pollo Espinacaz</p>
-                </div>
-              </div>
-            </div>
-            <div className="pl-1">
-              <button>
-                <img src={arrow_l} />
-              </button>
-            </div>
-          </div>
+          <Daycard />
 
           <div className="py-10 space-y-3">
             <div className="lg:flex lg:justify-center">
@@ -138,7 +95,8 @@ function Diet() {
         </div>
       </div>
     </section>
-  );
+    </>
+  )
 }
 
-export default Diet;
+export default Patientdiet

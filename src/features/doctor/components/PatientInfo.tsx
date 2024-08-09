@@ -1,7 +1,7 @@
 function PatientInfo() {
   return (
     <>
-      <section className="bg-color-primary">
+      <section className="bg-color-primary container">
         <div className="text-white flex justify-center text-center items-center">
           <h3 className="bg-color-secondary-light px-16 rounded-lg py-2">
             Pacientes

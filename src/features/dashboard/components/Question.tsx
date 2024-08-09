@@ -1,3 +1,5 @@
+import mujer_2 from "../../../assets/images/mujer2.png"
+
 function Question() {
   return (
     <>
@@ -19,7 +21,7 @@ function Question() {
             </div>
             <div className="mb-12 md:w-1/2">
               <img 
-              // src={mujer_2}
+              src={mujer_2}
                alt="" />
             </div>
           </div>
