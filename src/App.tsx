@@ -12,6 +12,7 @@ import Login from "./features/auth/pages/Login";
 import Register from "./features/auth/pages/Register";
 import Header from "./features/dashboard/components/Header";
 import PatientPage from "./features/patient/pages/PatientPage";
+import Profile from "./features/profile/pages/Profile";
 
 function HandleError() {
   const error = useRouteError();
@@ -72,7 +73,7 @@ function App() {
             <Route path="/prueba" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/pacientes" element={<PatientPage/>} />
-            <Route path="/kdjdk" element={<Dashboard />} />
+            <Route path="/perfil" element={<Profile />} />
           {/* </Route> */}
 
           {/* close protected routes */}
