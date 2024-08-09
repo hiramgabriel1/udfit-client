@@ -1,32 +1,51 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
-import { loginUser } from "../services/userServices";
+import { registerUser } from "../services/userServices";
+import { IPatient, roles } from "../../../types/user.types";
+import InputRegister from "./InputRegister";
 import "react-toastify/dist/ReactToastify.css";
 
-export type IUserLogin = {
-  username: string;
-  password: string;
-};
-
 function FormRegister() {
+  const [isChecked, setCheckedState] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IUserLogin>();
-  const onSubmit: SubmitHandler<IUserLogin> = async (dataForm: IUserLogin) => {
-    const fetchServiceLogin = await loginUser(dataForm)
-    console.log(fetchServiceLogin);
+    reset,
+  } = useForm<IPatient>();
+
+  const onSubmit: SubmitHandler<IPatient> = async (dataForm: IPatient) => {
+    try {
+      console.log(dataForm);
+      const role = isChecked ? roles.paciente : roles.doctor;
+      if (isChecked) {
+        const extendData = {
+          ...dataForm,
+          weight: dataForm.weight,
+          height: dataForm.height,
+          age: dataForm.age,
+          gender: dataForm.gender,
+          role: role,
+        };
+
+        await registerUser(extendData);
+      } else {
+        await registerUser(dataForm);
+      }
+
+      toast.success("Registro exitoso");
+      reset();
+    } catch (error) {
+      console.error("Error al registrar el usuario:", error);
+      toast.error("Oops, hubo un error");
+    }
   };
 
   useEffect(() => {
-    if (
-      errors.username?.type === "required" ||
-      errors.password?.type === "required"
-    )
+    if (Object.values(errors).length > 0)
       toast.error("Completa los campos necesarios");
-  }, [errors.username, errors.password])
+  }, [errors]);
 
   return (
     <>
@@ -50,17 +69,38 @@ function FormRegister() {
                   aria-invalid={errors.username ? "true" : "false"}
                 />
                 <input
+                  type="email"
+                  className="bg-color-primary-orange p-3 rounded-3xl text-center text-black hover:border-color-secondary opacity-75 input"
+                  placeholder="jafet@gmail.com"
+                  {...register("email", { required: true })}
+                />
+                <input
                   type="password"
                   className="bg-color-primary-orange p-3 rounded-3xl text-center text-black hover:border-color-secondary opacity-75 input"
-                  placeholder="Contraseña"
+                  placeholder="******"
                   {...register("password", { required: true })}
                 />
               </div>
             </div>
             <div className="flex items-center justify-center mt-4">
-              <button className="bg-color-secondary-light text-white py-2 px-4 rounded-3xl w-200">
-                Iniciar Sesion
+              <button
+                type="submit"
+                className="bg-color-secondary-light text-white py-2 px-4 rounded-3xl w-200"
+              >
+                Registrarse
               </button>
+              <label htmlFor="doctor" className="ml-2">
+                Soy doctor
+              </label>
+              <input
+                type="checkbox"
+                name="doctor"
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                  setCheckedState(event.target.checked);
+                }}
+                checked={isChecked}
+              />
+              {isChecked && <InputRegister register={register} />}
             </div>
           </form>
         </div>

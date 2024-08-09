@@ -1,4 +1,4 @@
-import { IUser } from "../../../vite-env";
+import { IPatient } from "../../../types/user.types";
 import { InstancesAxiosFetch } from "../../../shared/common/axiosConfig";
 import { IUserLogin } from "../components/Form";
 import useAuthStore from "../../../shared/stores/authStore";
@@ -19,13 +19,12 @@ export const loginUser = async (dataForm: IUserLogin) => {
     return login.data;
 };
 
-export const registerUser = async (dataForm: IUser) => {
+export const registerUser = async (dataForm: IPatient) => {
+    console.log(dataForm);
     const registerNewUser = await InstancesAxiosFetch.instanceLocalAPI.post(
-        "/user/register",
-        {
-            dataForm,
-        }
+        "/user/create",
+        dataForm,
     );
-
+    
     console.log(registerNewUser);
 };

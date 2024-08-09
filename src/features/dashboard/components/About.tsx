@@ -1,12 +1,14 @@
+import mujer_1 from "../../../assets/images/mujerImagen.png"
+
 function About() {
   return (
     <>
-      <section className="bg-color-primary-orange rounded-t-3xl rounded-b-3xl">
+      <section className="bg-color-primary-orange rounded-t-3xl rounded-b-3xl container">
         <div className="container py-20 relative">
           <div className="flex flex-col items-center justify-between md:flex-row">
             <div className="mb-12 md:w-1/2">
               <img 
-              // src={mujer_1}
+              src={mujer_1}
                alt="" />
             </div>
             <div className="text-center md:text-left md:w-1/2 md:ml-20 py-12 px-5">

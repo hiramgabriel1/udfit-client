@@ -14,6 +14,7 @@ import Header from "./features/dashboard/components/Header";
 import PatientPage from "./features/patient/pages/PatientPage";
 import ListCandidate from "./features/doctor/pages/Candidate"
 import PatientDataPage from "./features/patient/pages/PatientDataPage";
+import Editdiet from "./features/doctor/pages/Editdiet";
 
 function HandleError() {
   const error = useRouteError();
@@ -77,6 +78,7 @@ function App() {
             {/* doctor routes */}
             <Route path="/doctor/pacientes" element={<PatientPage/>} />
             <Route path="/doctor/pacientes/lista" element={<ListCandidate />} />
+            <Route path="/doctor/pacientes/editar/:userId" element={<Editdiet />} />
 
             <Route path="/paciente/perfil/:userId" element={<PatientDataPage/>} />
 
