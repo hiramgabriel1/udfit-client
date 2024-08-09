@@ -12,7 +12,7 @@ import Login from "./features/auth/pages/Login";
 import Register from "./features/auth/pages/Register";
 import Header from "./features/dashboard/components/Header";
 import PatientPage from "./features/patient/pages/PatientPage";
-import Profile from "./features/profile/pages/Profile";
+import ListCandidate from "./features/doctor/pages/Candidate"
 
 function HandleError() {
   const error = useRouteError();
@@ -70,10 +70,14 @@ function App() {
            */}
 
           {/* <Route element={<ProtectedRoute />}> */}
-            <Route path="/prueba" element={<Dashboard />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/pacientes" element={<PatientPage/>} />
-            <Route path="/perfil" element={<Profile />} />
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/app/dashboard" element={<Dashboard />} />
+
+            {/* doctor routes */}
+            <Route path="/doctor/pacientes" element={<PatientPage/>} />
+            <Route path="/doctor/pacientes/lista" element={<ListCandidate />} />
+
+            <Route path=""/>
           {/* </Route> */}
 
           {/* close protected routes */}

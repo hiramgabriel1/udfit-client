@@ -1,7 +1,7 @@
 import Patientlist from "../components/Patientlist"
 import PatientInfo from "../components/PatientInfo"
 
-function Profile() {
+function ListCandidate() {
   return (
     <>
     <PatientInfo />
@@ -10,4 +10,4 @@ function Profile() {
   )
 }
 
-export default Profile
+export default ListCandidate
