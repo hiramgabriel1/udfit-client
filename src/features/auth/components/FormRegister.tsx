@@ -22,9 +22,9 @@ function FormRegister() {
       if (isChecked) {
         const extendData = {
           ...dataForm,
-          weight: parseInt(dataForm.weight),
-          height: parseInt(dataForm.height),
-          age: parseInt(dataForm.age),
+          weight: dataForm.weight,
+          height: dataForm.height,
+          age: dataForm.age,
           gender: dataForm.gender,
           role: role,
         };

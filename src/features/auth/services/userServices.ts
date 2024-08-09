@@ -1,4 +1,4 @@
-import { IPatient } from "../../../vite-env";
+import { IPatient } from "../../../types/user.types";
 import { InstancesAxiosFetch } from "../../../shared/common/axiosConfig";
 import { IUserLogin } from "../components/Form";
 import useAuthStore from "../../../shared/stores/authStore";

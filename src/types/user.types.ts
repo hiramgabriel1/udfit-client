@@ -23,9 +23,9 @@ export interface IPatient {
     lastname: string
     email: string
     password: string
-    weight: string
-    height: string
-    age: string
+    weight: number
+    height: number
+    age: number
     gender: string
     role: roles
 } 
