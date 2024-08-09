@@ -13,6 +13,7 @@ import Register from "./features/auth/pages/Register";
 import Header from "./features/dashboard/components/Header";
 import PatientPage from "./features/patient/pages/PatientPage";
 import ListCandidate from "./features/doctor/pages/Candidate"
+import PatientDataPage from "./features/patient/pages/PatientDataPage";
 
 function HandleError() {
   const error = useRouteError();
@@ -77,8 +78,9 @@ function App() {
             <Route path="/doctor/pacientes" element={<PatientPage/>} />
             <Route path="/doctor/pacientes/lista" element={<ListCandidate />} />
 
-            <Route path=""/>
-          {/* </Route> */}
+            <Route path="/paciente/perfil/:userId" element={<PatientDataPage/>} />
+
+            {/* </Route> */}
 
           {/* close protected routes */}
           <Route path="*" element={<PageNotFound />} />
