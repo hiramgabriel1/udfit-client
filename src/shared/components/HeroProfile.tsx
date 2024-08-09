@@ -20,7 +20,7 @@ function HeroProfile() {
               />
             </div>
         
-            <div className="ml-14 text-lg lg:pl-12">
+            <div className="ml-14 text-lg lg:pl-12 md:text-2xl">
               <h2 className="lg:pl-4 lg:text-2xl">Josuhe Alba</h2>
             </div>
           </div>
