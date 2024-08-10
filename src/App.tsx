@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, useRouteError } from "react-router-dom";
 import PageNotFound from "./errors/PageNotFound";
 import Dashboard from "./features/dashboard/pages/Dashboard";
 import "./index.css";
-// import ProtectedRoute from "./shared/components/ProtectedRoute";
+import ProtectedRoute from "./shared/components/ProtectedRoute";
 import { Around } from "@theme-toggles/react";
 import "@theme-toggles/react/css/Around.css";
 import { useEffect, useState } from "react";
@@ -14,7 +14,6 @@ import Header from "./features/dashboard/components/Header";
 import PatientPage from "./features/patient/pages/PatientPage";
 import ListCandidate from "./features/doctor/pages/Candidate"
 import PatientDataPage from "./features/patient/pages/PatientDataPage";
-import Editdiet from "./features/doctor/pages/Editdiet";
 
 function HandleError() {
   const error = useRouteError();
@@ -26,7 +25,13 @@ function HandleError() {
 
 function App() {
   const { setDarkMode, setLightMode } = ThemePreferencesStore();
+  const login = useAuthStore((state) => state.login)
   const [isToggled, setToggle] = useState(false);
+
+  useEffect(()=> {
+    const storedToken = localStorage.getItem('tokenAuth')
+    if(storedToken) login(storedToken)
+  }, [login])
 
   useEffect(() => {
     isToggled ? setDarkMode() : setLightMode();
@@ -51,8 +56,8 @@ function App() {
         toggle={setToggle}
         placeholder={isToggled ? "Cambiar a ligth" : "cambiar a dark"}
         onPointerEnterCapture={undefined}
-        onPointerLeaveCapture={undefined}
-      ></Around>
+        onPointerLeaveCapture={undefined}>
+      </Around>
       <BrowserRouter>
         <Routes>
           <Route
@@ -71,7 +76,7 @@ function App() {
            * rutas protegidas deben estar dentro
            */}
 
-          {/* <Route element={<ProtectedRoute />}> */}
+          <Route element={<ProtectedRoute />}>
             <Route path="/" element={<Dashboard />} />
             <Route path="/app/dashboard" element={<Dashboard />} />
 
@@ -80,9 +85,9 @@ function App() {
             <Route path="/doctor/pacientes/lista" element={<ListCandidate />} />
             <Route path="/doctor/pacientes/editar/:userId" element={<Editdiet />} />
 
+            {/* patient routes */}
             <Route path="/paciente/perfil/:userId" element={<PatientDataPage/>} />
-
-            {/* </Route> */}
+          </Route>
 
           {/* close protected routes */}
           <Route path="*" element={<PageNotFound />} />
