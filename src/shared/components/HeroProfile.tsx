@@ -3,25 +3,32 @@ import profile from "../../assets/images/profile.jpeg";
 
 function HeroProfile() {
   return (
-    
-    <section className="bg-color-primary">
+    <section className="bg-color-primary 2xl:py-9">
       <div className="container w-full">
         <div className="lg:mb-10">
           <div className="flex justify-center pt-5">
             <img src={banner} className="rounded-lg lg:w-[80%]" />
           </div>
         </div>
-        <div className="relative py-5 pb-10 font-bold lg:px-14 lg:mx-14">
-          <div className="flex">
-            <div className="pr-10">
-              <img
-                src={profile}
-                className="rounded-full w-20 h-20 absolute -top-3 lg:w-[14%] lg:h-[160%] lg:-top-20"
-              />
+        <div className="py-5 lg:pb-14  font-bold lg:px-14 lg:mx-14">
+          <div className="flex items-center justify-between">
+            <div className="flex  items-center space-x-3 ">
+              <div className="flex items-center space-x-3 lg:space-x-7">
+                <img
+                  src={profile}
+                  className="rounded-full size-16 lg:size-[30%]  2xl:w-[40%]"
+                />
+
+                <div className=" text-lg  md:text-2xl ">
+                  <h2 className=" lg:text-2xl 2xl:text-4xl">Josuhe Alba</h2>
+                </div>
+              </div>
             </div>
-        
-            <div className="ml-14 text-lg lg:pl-12 md:text-2xl">
-              <h2 className="lg:pl-4 lg:text-2xl">Josuhe Alba</h2>
+
+            <div className="flex 2xl:pr-8 lg:pr-2">
+              <button className="bg-color-secondary-light text-white rounded-xl px-3 font-semibold text-xs lg:text-2xl lg:rounded-3xl lg:py-1 lg:px-12 md:text-2xl md:rounded-2xl 2xl:text-3xl">
+                Editar foto
+              </button>
             </div>
           </div>
         </div>
