@@ -1,12 +1,13 @@
+import logo from "../../../assets/images/udfitLogo.png"
 function Header() {
     return (
       // fragments
       <>
-        <header>
+        <header className="bg-color-primary">
           <nav className="container flex items-center justify-between">
             <div className="w-68 py-3 flex items-center">
               <img
-                // src={logo}
+                src={logo}
                 alt=""
                 className="w-10 h-10 sm:w-16 sm:h-16"
               />
@@ -30,7 +31,7 @@ function Header() {
               </div>
             </div>
   
-            <div className="">
+            <div className=" space-x-2">
               <a
                 href="/auth/login"
                 className="text-xs md:text-base px-1 py-1 md:px-4 md:py-3 border border-color-secondary rounded-3xl capitalize text-color-secondary hover:border-color-orange-focus hover:text-black ease-in duration-200"

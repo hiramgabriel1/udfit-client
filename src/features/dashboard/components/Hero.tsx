@@ -1,7 +1,8 @@
+import comidaLanding from "../../../assets/images/comidaLanding.png"
 function Hero() {
   return (
     <>
-      <section>
+      <section className="bg-color-primary">
         <div className="container py-20">
           <div className="flex flex-col items-center z-20 md:flex-row">
             <div className="flex flex-col md:flex-row items-center">
@@ -15,7 +16,7 @@ function Hero() {
               </div>
               <div className="md:w-1/2">
                 <img 
-                // src={comidaLanding}
+                src={comidaLanding}
                  alt="" className="md:float-right" />
               </div>
             </div>
