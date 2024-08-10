@@ -30,9 +30,9 @@ function FormRegister() {
         };
 
         await registerUser(extendData);
-      } else {
-        await registerUser(dataForm);
       }
+
+      await registerUser(dataForm);
 
       toast.success("Registro exitoso");
       reset();

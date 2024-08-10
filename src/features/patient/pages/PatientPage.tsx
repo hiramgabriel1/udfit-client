@@ -4,8 +4,8 @@ import HeroProfile from "../../../shared/components/HeroProfile";
 function PatientPage() {
   return (
     <>
-    <HeroProfile></HeroProfile>
-    <Diet></Diet>
+      <HeroProfile />
+      <Diet />    
     </>
   )
 }
