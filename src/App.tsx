@@ -14,6 +14,8 @@ import Header from "./features/dashboard/components/Header";
 import PatientPage from "./features/patient/pages/PatientPage";
 import ListCandidate from "./features/doctor/pages/Candidate"
 import PatientDataPage from "./features/patient/pages/PatientDataPage";
+import Editdiet from "./features/doctor/pages/Editdiet";
+import useAuthStore from "./shared/stores/authStore";
 
 function HandleError() {
   const error = useRouteError();
