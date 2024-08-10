@@ -5,7 +5,7 @@ import { loginUser } from "../services/userServices";
 import "react-toastify/dist/ReactToastify.css";
 
 export type IUserLogin = {
-  username: string;
+  email: string;
   password: string;
 };
 
@@ -22,11 +22,11 @@ function FormAuthLogin() {
 
   useEffect(() => {
     if (
-      errors.username?.type === "required" ||
+      errors.email?.type === "required" ||
       errors.password?.type === "required"
     )
       toast.error("Completa los campos necesarios");
-  }, [errors.username, errors.password]);
+  }, [errors]);
 
   return (
     <>
@@ -43,11 +43,11 @@ function FormAuthLogin() {
             <div className="text-center">
               <div className="flex flex-col py-5 px-10 space-y-4">
                 <input
-                  type="text"
+                  type="email"
                   className="bg-color-primary-orange p-3 rounded-3xl text-center text-black hover:border-color-secondary opacity-75 input"
-                  placeholder="Nombre de usuario"
-                  {...register("username", { required: true })}
-                  aria-invalid={errors.username ? "true" : "false"}
+                  placeholder="Email"
+                  {...register("email", { required: true })}
+                  aria-invalid={errors.email ? "true" : "false"}
                 />
                 <input
                   type="password"

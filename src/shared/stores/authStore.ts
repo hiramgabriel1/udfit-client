@@ -10,8 +10,16 @@ interface IAuthState {
 const useAuthStore = create<IAuthState>((set) => ({
     isAuthenticated: false,
     token: null,
-    login: () => set({ isAuthenticated: true }),
-    logout: () => set({ isAuthenticated: false }),
+    login: (token: string) => {
+        console.log(token);
+        
+        set({ isAuthenticated: true, token })
+        localStorage.setItem('authToken', token)
+    },
+    logout: () => {
+        set({ isAuthenticated: false, token: null })
+        localStorage.removeItem('authToken' )
+    },
 }));
 
 export default useAuthStore;
