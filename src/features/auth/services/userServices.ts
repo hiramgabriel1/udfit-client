@@ -1,8 +1,7 @@
 import { IPatient } from "../../../types/user.types";
 import { InstancesAxiosFetch } from "../../../shared/common/axiosConfig";
 import { IUserLogin } from "../components/Form";
-import useAuthStore from "../../../shared/stores/authStore";
-// import cookie from "js-cookie";
+import { loginUserToStore } from "../../../shared/stores/authStore";
 
 export const loginUser = async (dataForm: IUserLogin) => {
     const requestLogin = await InstancesAxiosFetch.instanceLocalAPI.post(
@@ -10,21 +9,21 @@ export const loginUser = async (dataForm: IUserLogin) => {
         dataForm
     );
     console.log(requestLogin);
-    
-    const token = requestLogin.data.token;
-    console.log(token);
-    
+
+    const tokenUser = requestLogin.data.token;
+    console.log(tokenUser);
+
     /**
      * @message
      * Si no hay token devolverlo a otra ruta con un navigate
      */
 
-    if(token) {
-        useAuthStore.getState().login(token) 
-        location.assign('http://localhost:5173/app/dashboard')
+    if (tokenUser) {
+        loginUserToStore(tokenUser)
+        location.assign("http://localhost:5173/app/dashboard");
     }
 
-    console.log('token no recibido');
+    console.log("token no recibido");
 };
 
 export const registerUser = async (dataForm: IPatient) => {

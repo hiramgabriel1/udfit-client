@@ -22,4 +22,11 @@ const useAuthStore = create<IAuthState>((set) => ({
     },
 }));
 
+export const loginUserToStore = (token: string) => {
+    console.log(token);
+    
+    useAuthStore.getState().login(token)
+}
+export const logoutUserFromStore = () => useAuthStore.getState().logout()
+
 export default useAuthStore;

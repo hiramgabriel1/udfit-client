@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, useRouteError } from "react-router-dom";
 import PageNotFound from "./errors/PageNotFound";
 import Dashboard from "./features/dashboard/pages/Dashboard";
 import "./index.css";
-import ProtectedRoute from "./shared/components/ProtectedRoute";
+// import ProtectedRoute from "./shared/components/ProtectedRoute";
 import { Around } from "@theme-toggles/react";
 import "@theme-toggles/react/css/Around.css";
 import { useEffect, useState } from "react";
@@ -10,7 +10,7 @@ import ThemePreferencesStore from "./shared/stores/preferencesUser";
 import { changeTheme } from "./shared/common/preferencesTheme";
 import Login from "./features/auth/pages/Login";
 import Register from "./features/auth/pages/Register";
-import Header from "./features/dashboard/components/Header";
+// import Header from "./features/dashboard/components/Header";
 import PatientPage from "./features/patient/pages/PatientPage";
 import ListCandidate from "./features/doctor/pages/Candidate"
 import PatientDataPage from "./features/patient/pages/PatientDataPage";
@@ -49,7 +49,7 @@ function App() {
 
   return (
     <>
-      <Header/>
+      {/* <Header/> */}
       <Around
         duration={800}
         reversed
@@ -77,7 +77,7 @@ function App() {
            * rutas protegidas deben estar dentro
            */}
 
-          <Route element={<ProtectedRoute />}>
+          {/* <Route element={<ProtectedRoute />}> */}
             <Route path="/" element={<Dashboard />} />
             <Route path="/app/dashboard" element={<Dashboard />} />
 
@@ -87,7 +87,7 @@ function App() {
 
             {/* patient routes */}
             <Route path="/paciente/perfil/:userId" element={<PatientDataPage/>} />
-          </Route>
+          {/* </Route> */}
 
           {/* close protected routes */}
           <Route path="*" element={<PageNotFound />} />
