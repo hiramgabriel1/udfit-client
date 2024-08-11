@@ -4,7 +4,7 @@ import HeroProfile from "../../../shared/components/HeroProfile";
 function PatientPage() {
   return (
     <>
-      <HeroProfile />
+      <HeroProfile username={"juan"} />
       <Diet />    
     </>
   )

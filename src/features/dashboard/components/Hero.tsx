@@ -1,6 +1,13 @@
-function Hero() {
+function Hero({ children }: {children: React.ReactNode}) {
+  // console.log(children);
+  const token = localStorage.getItem('authToken')
+  console.log(token);
+    
   return (
     <>
+      <div>
+        <button>{ children }</button>
+      </div>
       <section>
         <div className="container py-20">
           <div className="flex flex-col items-center z-20 md:flex-row">
@@ -14,9 +21,11 @@ function Hero() {
                 </p>
               </div>
               <div className="md:w-1/2">
-                <img 
-                // src={comidaLanding}
-                 alt="" className="md:float-right" />
+                <img
+                  // src={comidaLanding}
+                  alt=""
+                  className="md:float-right"
+                />
               </div>
             </div>
           </div>
@@ -26,4 +35,4 @@ function Hero() {
   );
 }
 
-export default Hero
+export default Hero;

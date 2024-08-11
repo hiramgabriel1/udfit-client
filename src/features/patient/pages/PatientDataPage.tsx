@@ -3,7 +3,6 @@ import HeroProfile from "../../../shared/components/HeroProfile";
 import PatientData from "../components/PatientData";
 import { profileData } from "../services/patient.service";
 import type { IPatient } from "../../../types/user.types";
-// import { toast, ToastContainer } from "react-toastify";
 
 const PatientDataPage: React.FC = () => {
   const [profile, setProfileData] = useState<IPatient>();
@@ -24,7 +23,6 @@ const PatientDataPage: React.FC = () => {
         setLoading(false);
       }
     };
-    // console.log(profile);
     
     queryProfile();
   }, []);

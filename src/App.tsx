@@ -82,11 +82,11 @@ function App() {
             <Route path="/app/dashboard" element={<Dashboard />} />
 
             {/* doctor routes */}
-            <Route path="/doctor/pacientes" element={<PatientPage/>} />
-            <Route path="/doctor/pacientes/lista" element={<ListCandidate />} />
+            <Route path="/doctor/:doctorId/pacientes/lista" element={<ListCandidate />} />
 
             {/* patient routes */}
             <Route path="/paciente/perfil/:userId" element={<PatientDataPage/>} />
+            <Route path="/paciente/dietas" element={<PatientPage/>} />
           {/* </Route> */}
 
           {/* close protected routes */}
