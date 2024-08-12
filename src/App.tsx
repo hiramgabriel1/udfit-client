@@ -16,6 +16,7 @@ import ListCandidate from "./features/doctor/pages/Candidate"
 import PatientDataPage from "./features/patient/pages/PatientDataPage";
 import Editdiet from "./features/doctor/pages/Editdiet";
 import useAuthStore from "./shared/stores/authStore";
+import EditPatient from "./features/doctor/pages/EditPatient";
 
 function HandleError() {
   const error = useRouteError();
@@ -83,13 +84,13 @@ function App() {
             <Route path="/app/dashboard" element={<Dashboard />} />
 
             {/* doctor routes */}
-            <Route path="/doctor/pacientes" element={<PatientPage/>} />
             <Route path="/doctor/pacientes/lista" element={<ListCandidate />} />
             <Route path="/doctor/pacientes/editar/:userId" element={<Editdiet />} />
             <Route path="/doctor/pacientes/editar/info/:userId" element={<EditPatient/>}/>
 
             {/* patient routes */}
             <Route path="/paciente/perfil/:userId" element={<PatientDataPage/>} />
+            <Route path="/doctor/perfil/dieta/:userId" element={<PatientPage/>} />
           </Route>
 
           {/* close protected routes */}

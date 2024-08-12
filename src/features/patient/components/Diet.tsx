@@ -5,11 +5,16 @@ import arrow_l from "../../../assets/images/arrow_l.png";
 function Diet() {
   return (
     <section>
-      <div className="container">
-        <div className="flex justify-center py-8 ">
-          <button className="bg-color-secondary-light text-white rounded-xl px-10 font-semibold text-sm lg:text-2xl lg:rounded-3xl lg:py-1 lg:px-12">
-            DIETA
+      <div className="container bg-color-primary-light">
+        <div className="flex justify-center space-x-6 py-8 ">
+          <button className="bg-color-primary text-black rounded-xl px-10 font-semibold text-sm lg:text-2xl lg:rounded-3xl lg:py-1 lg:px-12">
+            MIS DATOS
           </button>
+          <a>
+          <button className="bg-color-secondary text-white rounded-xl px-10 font-semibold text-sm lg:text-2xl lg:rounded-3xl lg:py-1 lg:px-12 md:text-2xl md:rounded-2xl">
+            MI DIETA
+          </button>
+          </a>
         </div>
 
         <div>
