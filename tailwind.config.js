@@ -14,6 +14,7 @@ export default {
         principal: ["Poetsen One", "sans-serif"],
       },
       colors: {
+        "color-primary-light": "#FFFDF3",
         "color-primary": "#F5F0DC",
         "color-primary-orange": "#F2C070",
         "color-secondary": "#314F2F",
